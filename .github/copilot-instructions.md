@@ -1,0 +1,8 @@
+# Parkinson's Voice-Detection Project
+
+- The primary dataset is the UCI Parkinsons (Oxford) file at `data/raw/parkinsons.data`: 195 rows and 24 source columns, no nulls or duplicate rows, and 32 unique subjects (24 with Parkinson's disease and 8 healthy). `status` is the binary target (`1` = Parkinson's, `0` = healthy); the file contains 147 PD and 48 healthy recordings (75.4% PD). Names look like `phon_R01_S01_1`: parse `S01` as the subject and the trailing number as the recording. Twenty-nine subjects have 6 recordings; S21, S27, and S35 have 7. The UCI page says 31 people / 23 PD, but trust and assert the file's 32 / 24.
+- The secondary UCI Parkinsons Telemonitoring dataset at `data/raw/parkinsons_updrs.data` has 5,875 rows, 22 columns, and 42 PD patients only. Group on `subject#`; `motor_UPDRS` and `total_UPDRS` are regression targets. It has no healthy controls, uses different features, and must never be merged with Oxford or used for detection.
+- Repeated recordings from a person are not independent. Use subject-grouped splits with `subject_id` for all validation. A naive random split is permitted only to demonstrate how leakage inflates scores.
+- The graded deliverable is one self-contained notebook (`.ipynb`) plus its `.html` export. Reviewers will not receive `src/`; keep all modelling, validation, and evaluation code in the notebook. `src/` exists only to support the Streamlit demo and tests.
+- Use clear comments that explain why, type hints, and docstrings. Avoid unexplained magic numbers and dependencies not listed in `requirements.txt`.
+- Never commit changes. Never invent or imply unmeasured results or metrics; report unknown results as TBD.

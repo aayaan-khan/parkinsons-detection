@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test and tool caches
+.pytest_cache/
+
+# Operating system
+.DS_Store
+
+# Personal VS Code settings
+.vscode/settings.json
+
+# Generated data and model artifacts; keep the directory placeholders
+data/processed/*
+!data/processed/.gitkeep
+models/*
+!models/.gitkeep
